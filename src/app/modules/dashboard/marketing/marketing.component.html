@@ -1,0 +1,67 @@
+<div class="marketing">
+  <div class="col-md-12" style="padding: 0px;">
+    <form class="form">
+      <div class="card">
+        <div>
+          <form class="form">
+            <div class="col-md-12 card-header">
+              <div class="form-group row" style="margin:5px 0px;">
+                <div class="col-md-2 lbl-cmn-01">
+                  <label>Referral Status</label>
+                </div>
+                <div class="col-md-4">
+                  <select class="form-control" (change)="onClickChange($event)">
+                    <option value="null"></option>
+                    <option *ngFor="let ref of referralstatus"> {{ ref.Status }} </option>
+                  </select>
+                </div>
+                <!--
+                <div class="col-md-4">
+                  <select class="form-control" (change)="onChangeSearch($event)">
+                    <option value="null"></option>
+                    <option *ngFor="let reason of reasonArray"> {{ reason }}</option>
+                  </select>
+                </div>
+              -->
+                <div class="col-md-2">
+                  <button type="button" class="btn btn-primary " (click)="onClick($event)">get List
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="card-body">
+          <div id="weeklyRefferalCount" style="padding-bottom:10px;">Total Number of Referral this week = {{this.weeklyCount}}</div>
+          <div class="col-md-12 text-left">
+            <table class="table table-hover table-bordered" style="margin:auto;">
+              <thead>
+                <tr>
+                  <th>Lastname Firstname Middlename</th>
+                  <th>Location</th>
+                  <th>Phone number</th>
+                  <th>Therapists</th>
+                  <th>Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor=" let data of list" (click)="patientListData(data)">
+                  <td>{{ data.Patient_Last_Name }} {{ data.Patient_First_Name }} {{ data.Patient_Middle_Name }}</td>
+                  <td>{{ data.Service_Location }}</td>
+                  <td>{{ data.Patient_contact_Number }}</td>
+                  <td>{{ data.supervising_Therapist }}</td>
+                  <td>{{ data.Treating_Therapist }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <hr>
+        <div *ngIf="closeDetail">
+          <app-marketing-listby-referral [patientList]="patientList"></app-marketing-listby-referral>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

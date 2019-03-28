@@ -1,0 +1,33 @@
+<div class="patient-list">
+<div class="row" style="padding: 1.11rem; margin: 0; ">
+    <div class="card-body">
+    <div class="col-md-12 text-left">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Date of Referral</th>
+                    <th scope="col">Referral Status</th>
+                    <th scope="col">Patient Name</th>
+                    <th scope="col">Service Location</th>
+
+                </tr>
+            </thead>
+            <tbody >
+              
+                <tr *ngFor="let patient of list" (click)="patientData(patient)">
+                    <td>{{ patient.Date_of_Referral }}</td>
+                    <td>{{ patient.Referral_Status }}</td>
+                    <td>{{ patient.Patient_First_Name }} {{ patient.Patient_Middle_Name }} {{ patient.Patient_Last_Name }}</td>
+                    <td>{{ patient.Service_Location }}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6" *ngIf="closeRightPane">
+        <!-- <app-patient-detail *ngIf="patientinfo != undefined" (onClose)="onClose($event)" [patientinfo]="patientinfo"></app-patient-detail> -->
+    </div>
+    </div>
+</div>
+</div>

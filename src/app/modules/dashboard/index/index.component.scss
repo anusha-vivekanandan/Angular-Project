@@ -1,0 +1,25 @@
+.outerLayer{
+    padding: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    .tabs{
+        padding-top: 20px;
+        .textfields{
+            input{
+                width: 100%;
+                background: 0 0;
+                border-style: groove;
+                font-size: 14px;
+                padding: 9px 5px;
+            }
+            textarea{
+                border: 1px solid;
+                border-radius: 0px;
+                min-height: 105px;
+            }
+            .card .card-footer .modal-footer{
+                justify-content: center;
+            }
+        } 
+    }
+}

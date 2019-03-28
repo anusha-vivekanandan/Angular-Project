@@ -1,0 +1,50 @@
+<form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+  <div class="row" style="margin-top: 150px;">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 field">
+      <div class="form align-items-center">
+        <div class="col-md-12">
+          <h5>Logo here</h5>
+        </div>
+        <div class="col-auto">
+          <label class="sr-only" for="email">Email</label>
+          <div class="input-group-login mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"> </div>
+            
+          <!--  <input type="text" class="form-control" id="email" formControlName="email" placeholder="E-mail" 
+            [ngClass]="{'is-invalid': loginform.get('email').invalid && loginform.get('email').dirty}" /> -->
+            <input type="text" class="form-control hide" id="email" formControlName="email" placeholder="userid" />
+            <div id="InvalidEmail" class="loginerror">
+
+            </div>
+          </div>
+          </div>
+              <!-- <div class="invalid-feedback" *ngIf="loginform.get('email').hasError('required') && loginform.get('email').dirty">
+                Email address is required.
+              </div>
+              <div class="invalid-feedback" *ngIf="loginform.get('email').hasError('email') && loginform.get('email').dirty">
+                Please enter a valid email.
+              </div> -->
+        </div>
+        
+        <div id="submit" class="col-auto text-center hide">
+        <!--  <button [routerLink]="['/dashboard']" [disabled]="loginform.invalid"  type="submit" class="btn btn-primary mb-2">Login</button> -->
+        <button routerLink="/dashboard/{{ this.loginform.value.email }}" type="submit" class="btn btn-primary mb-2">Login</button>
+        </div>
+        <div id="useAnother" class="hide" style="padding-left:5px;">
+          Use another Account
+        </div>
+        <div class="col-auto text-center">
+        <button (click)="socialSignIn('google')" class="loginBtn loginBtn--google">
+          Login
+        </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+</form>

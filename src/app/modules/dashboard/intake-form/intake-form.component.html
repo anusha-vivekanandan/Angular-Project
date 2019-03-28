@@ -1,0 +1,385 @@
+<div class="intake">
+  <div class="col-md-12" style="padding: 0px;">
+    <form class="form" [formGroup]="patientintake">
+      <div class="card">
+        <div class="card-header">
+          <div class="form-group row" style="margin:5px 0px;">
+            <div class="col-md-2 lbl-cmn-01">
+              <label>Date of Referral</label>
+            </div>
+            <div class="col-md-2">
+              <div class="input-group">
+                <input class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required width-75 date-field"
+                  placeholder="yyyy-mm-dd" formControlName="Date_of_Referral" ngbDatepicker #deb="ngbDatepicker"
+                  readonly>
+                <div class="input-group-append">
+                  <button type="button" class="btn btn-default btn-md" (click)="deb.toggle()">
+                    <!-- <i class="icon ion-md-calendar"></i> -->
+                    <!-- <ion-icon name="heart"></ion-icon> -->
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <!-- <div class="invalid-feedback" *ngIf="patientintake.get('dateofreferral').hasError('required') && patientintake.get('dateofreferral').dirty">
+              Email address is required.
+            </div> -->
+                <div class="form-text patintake" *ngIf="patientintake.get('Date_of_Referral').touched && patientintake.get('Date_of_Referral').hasError('required')">This
+                  field is required!</div>
+                <!-- <div class="invalid-feedback" *ngIf="patientintake.get('dateofreferral').hasError('dateofreferral') && patientintake.get('dateofreferral').dirty">
+                Please enter a valid email.
+              </div> -->
+              </div>
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+
+            <div class="col-md-2 lbl-cmn-01">
+              <label>Referral Status</label>
+            </div>
+            <div class="col-md-2">
+              <select class="form-control" formControlName="Referral_Status" (change)="onClickChange($event)">
+                <option value="null"></option>
+                <option *ngFor="let referral of referralstatus">{{ referral.Status }}</option>
+              </select>
+              <div class="form-text patintake" *ngIf="patientintake.get('Referral_Status').touched && patientintake.get('Referral_Status').hasError('required')">Please
+                enter Referral Date</div>
+            </div>
+            <div class="col-md-2">
+              <select class="form-control" formControlName="Referral_Sub_Status">
+                <option value="null"></option>
+                <option *ngFor="let reason of reasonArray"> {{ reason }}</option>
+              </select>
+
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="form-group row" style="margin:5px 0px;">
+            <div class="col-md-2 lbl-cmn-01">
+              <label>Patient Name</label>
+            </div>
+            <div class="col-md-2">
+              <input type="text" class="form-control" formControlName="patientLastName" placeholder="Last name"
+                [ngClass]="{'is-invalid': patientintake.get('patientLastName').invalid && patientintake.get('patientLastName').dirty}">
+              <!-- <div class="invalid-feedback" *ngIf="patientintake.get('patientLastName').hasError('required') && patientintake.get('patientLastName').dirty">
+            Lastname is required.
+          </div> -->
+              <div class="invalid-feedback" *ngIf="patientintake.get('patientLastName').touched && patientintake.get('patientLastName').hasError('required')">
+                Lastname is required.
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <input type="text" class="form-control" formControlName="patientFirstName" placeholder="First name"
+                [ngClass]="{'is-invalid': patientintake.get('patientFirstName').invalid && patientintake.get('patientFirstName').dirty}">
+              <div class="invalid-feedback" *ngIf="patientintake.get('patientLastName').touched && patientintake.get('patientLastName').hasError('required')">
+                Firstname is required.
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <input type="text" class="form-control" formControlName="patientmiddleName" placeholder="Middle name"
+                [ngClass]="{'is-invalid': patientintake.get('patientmiddleName').invalid && patientintake.get('patientmiddleName').dirty}">
+              <div class="invalid-feedback" *ngIf="patientintake.get('patientLastName').touched && patientintake.get('patientLastName').hasError('required')">
+                Middlename is required.
+              </div>
+            </div>
+            <div class="col-md-2 lbl-cmn-01">
+              <label>Date of Birth</label>
+            </div>
+            <div class="col-md-2">
+              <div class="input-group">
+                <input class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required width-75 date-field"
+                  placeholder="yyyy-mm-dd" formControlName="dateOfBirth" ngbDatepicker #deb1="ngbDatepicker" readonly>
+                <div class="input-group-append">
+                  <button type="button" class="btn btn-default btn-md" (click)="deb1.toggle()">
+                    <!-- <i class="icon ion-md-calendar"></i> -->
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <!-- <div class="invalid-feedback" *ngIf="patientintake.get('dateofreferral').hasError('required') && patientintake.get('dateofreferral').dirty">
+                  Email address is required.
+                </div> -->
+                <div class="form-text patintake" *ngIf="patientintake.get('dateOfBirth').touched && patientintake.get('dateOfBirth').hasError('required')">This
+                  field is required!</div>
+                <!-- <div class="invalid-feedback" *ngIf="patientintake.get('dateofreferral').hasError('dateofreferral') && patientintake.get('dateofreferral').dirty">
+                    Please enter a valid email.
+                  </div> -->
+              </div>
+              <div class="form-text patintake" *ngIf="patientintake.get('dateOfBirth').touched && patientintake.get('dateOfBirth').hasError('required')">
+                DOB is required!
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group row" style="margin:0px;">
+            <div class="col-md-2 lbl-cmn-01">
+              <label>Insurance</label>
+            </div>
+            <div class="col-md-2">
+              <select class="form-control" formControlName="insurance">
+                <option value="null"></option>
+                <option *ngFor="let insure of insurance">{{ insure.Insurance }}</option>
+              </select>
+              <div class="form-text patintake" *ngIf="patientintake.get('insurance').touched && patientintake.get('insurance').hasError('required')">
+                Select your Insurance type!
+              </div>
+            </div>
+
+            <div class="col-md-2 lbl-cmn-01">
+              <label>Service Location</label>
+            </div>
+
+            <div class="col-md-2">
+              <select class="form-control" formControlName="serviceLocation" (change)="onClickAddressUpdate($event)">
+                <option value="null"></option>
+                <option *ngFor="let locate of service">{{ locate.location }}</option>
+              </select>
+              <div class="form-text patintake" *ngIf="patientintake.get('serviceLocation').touched && patientintake.get('serviceLocation').hasError('required')">
+                Please select your location.
+              </div>
+            </div>
+            <div class="col-md-2 lbl-cmn-01">
+              <label>Discipline</label>
+            </div>
+            <div class="col-md-2">
+              <select class="form-control" formControlName="discipline">
+                <option value="null"></option>
+                <option *ngFor="let disp of decipline">{{ disp }}</option>
+              </select>
+              <div class="form-text patintake" *ngIf="patientintake.get('discipline').touched && patientintake.get('discipline').hasError('required')">
+                Select Discipline!
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row" style="margin:5px 0px;">
+            <div class="col-md-2 lbl-cmn-01">
+              <label>Address</label>
+            </div>
+
+            <div class="col-md-2">
+              <input type="text" class="form-control" formControlName="address" [(ngModel)]="updateAddress" [ngClass]="{'is-invalid': patientintake.get('address').invalid && patientintake.get('address').dirty}">
+              <div class="invalid-feedback" *ngIf="patientintake.get('patientLastName').touched && patientintake.get('patientLastName').hasError('required')">
+                Address is required
+              </div>
+            </div>
+
+            <div class="col-md-2 lbl-cmn-01">
+              <label>City</label>
+            </div>
+
+            <div class="col-md-2">
+              <input type="text" class="form-control" formControlName="city" [(ngModel)]="updateCity" [ngClass]="{'is-invalid': patientintake.get('city').invalid && patientintake.get('city').dirty}">
+              <div class="invalid-feedback" *ngIf="patientintake.get('patientLastName').touched && patientintake.get('patientLastName').hasError('required')">
+                City is required.
+              </div>
+            </div>
+            <div class="col-md-2 lbl-cmn-01">
+              <label>State</label>
+            </div>
+            <div class="col-md-2">
+              <input type="text" readonly class="form-control" formControlName="state" value="NC" [ngClass]="{'is-invalid': patientintake.get('state').invalid && patientintake.get('state').dirty}">
+              <div class="invalid-feedback" *ngIf="patientintake.get('patientLastName').touched && patientintake.get('patientLastName').hasError('required')">
+                State is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row" style="margin:5px 0px;">
+            <div class="col-md-2 lbl-cmn-01">
+              <label>Zip</label>
+            </div>
+            <div class="col-md-4">
+              <input type="text" class="form-control" formControlName="zip" [(ngModel)]="updateZip" [ngClass]="{'is-invalid': patientintake.get('zip').invalid && patientintake.get('zip').dirty}">
+              <div class="invalid-feedback" *ngIf="patientintake.get('patientLastName').touched && patientintake.get('patientLastName').hasError('required')">
+                Zip is required.
+              </div>
+            </div>
+            <div class="col-md-3 lbl-cmn-01">
+              <label>Patient contact Number</label>
+            </div>
+            <div class="col-md-3">
+              <!-- {{patientintake.get('patientContactNumber').hasError('maxLength')}} -->
+              <input type="text" class="form-control" formControlName="patientContactNumber" placeholder="phone no"
+                pattern="[0-9]+" [ngClass]="{'is-invalid': patientintake.get('patientContactNumber').invalid && patientintake.get('patientContactNumber').dirty}">
+              <div class="invalid-feedback" *ngIf="patientintake.get('patientContactNumber').hasError('required') && patientintake.get('patientContactNumber').dirty">
+                Patient contact Number is required.
+              </div>
+              <div class="invalid-feedback" *ngIf="patientintake.get('patientContactNumber').hasError('maxlength') && patientintake.get('patientContactNumber').dirty">
+                Contact Number should not more than 10 characters.
+              </div>
+            </div>
+          </div>
+
+
+
+          <hr>
+
+          <div class="form-group row" style="margin:5px 0px;">
+            <div class="col-md-3 lbl-cmn-01">
+              <label>Source Of Referral</label>
+            </div>
+            <div class="col-md-3 lbl-cmn-01">
+              <select class="form-control" formControlName="sourceOfReferral">
+                <option value="null"></option>
+                <option *ngFor="let source of referralsource">{{ source.Item }}</option>
+              </select>
+              <div class="form-text patintake" *ngIf="patientintake.get('sourceOfReferral').touched && patientintake.get('sourceOfReferral').hasError('required')">
+                Select your Source of Referral
+              </div>
+            </div>
+            <div class="col-md-3 lbl-cmn-01">
+              <label>External Referral name</label>
+            </div>
+            <div class="col-md-3">
+              <input type="text" class="form-control" formControlName="externalReferralName" placeholder="Input"
+                [ngClass]="{'is-invalid': patientintake.get('externalReferralName').invalid && patientintake.get('externalReferralName').dirty}">
+              <div class="invalid-feedback" *ngIf="patientintake.get('externalReferralName').hasError('required') && patientintake.get('externalReferralName').dirty">
+                External referral name is required.
+              </div>
+              <div class="invalid-feedback" *ngIf="patientintake.get('externalReferralName').hasError('maxlength') && patientintake.get('externalReferralName').dirty">
+                External referral name should not more than 50 characters.
+              </div>
+            </div>
+          </div>
+
+
+          <hr>
+
+          <div class="form-group row" style="margin:5px 0px;">
+            <div class="col-md-2 lbl-cmn-01">
+              <label>Supervising Therapist</label>
+            </div>
+            <div class="col-md-4 lbl-cmn-01">
+              <select class="form-control" formControlName="supervising">
+                <option value="null"></option>
+                <option *ngFor="let supervise of therapist">{{ supervise.LastName }} {{ supervise.firstName }}</option>
+              </select>
+              <div class="form-text patintake" *ngIf="patientintake.get('supervising').touched && patientintake.get('supervising').hasError('required')">
+                Please Select supuervising!
+              </div>
+            </div>
+            <div class="col-md-2 lbl-cmn-01">
+              <label>Treating Therapist</label>
+            </div>
+            <div class="col-md-4 lbl-cmn-01">
+              <select class="form-control" formControlName="treating">
+                <option value="null"></option>
+                <option *ngFor="let ptreat of treating">{{ ptreat.LastName }} {{ ptreat.firstName }}</option>
+              </select>
+              <div class="form-text patintake" *ngIf="patientintake.get('treating').touched && patientintake.get('treating').hasError('required')">
+                Please Select Treating!
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group row" style="margin:5px 0px;">
+            <div class="col-md-2 lbl-cmn-01">
+              <label>Physician name</label>
+            </div>
+            <div class="col-md-4">
+              <input type="text" class="form-control" formControlName="physicianName" placeholder="input" [ngClass]="{'is-invalid': patientintake.get('physicianName').invalid && patientintake.get('physicianName').dirty}">
+              <div class="invalid-feedback" *ngIf="patientintake.get('physicianName').hasError('required') && patientintake.get('physicianName').dirty">
+                Physician Name is required.
+              </div>
+              <div class="invalid-feedback" *ngIf="patientintake.get('physicianName').hasError('maxlength') && patientintake.get('physicianName').dirty">
+                Physician Name must be less than 50 characters.
+              </div>
+              <!-- <div class="form-text patintake" *ngIf="patientintake.get('physicianName').touched && patientintake.get('physicianName').hasError('required')">
+            Please Enter your Physician name
+          </div> -->
+            </div>
+            <div class="col-md-2 lbl-cmn-01">
+              <label>Physician Office</label>
+            </div>
+            <div class="col-md-4 lbl-cmn-01 ">
+              <select class="form-control" formControlName="physicianOffice">
+                <option value="null"></option>
+                <option *ngFor="let phy of physicianoffice">{{ phy.office.officeName }}</option>
+              </select>
+              <div class="form-text patintake" *ngIf="patientintake.get('physicianOffice').touched && patientintake.get('physicianOffice').hasError('required')">
+                Please Select Treating!
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row" style="margin:5px 0px;">
+            <div class="col-md-3 lbl-cmn-01">
+              <label>Physician office contact#</label>
+            </div>
+
+            <div class="col-md-3">
+              <input type="text" class="form-control" formControlName="physicianContact" placeholder="input" [ngClass]="{'is-invalid': patientintake.get('physicianContact').invalid && patientintake.get('physicianContact').dirty}">
+              <div class="invalid-feedback" *ngIf="patientintake.get('patientLastName').touched && patientintake.get('patientLastName').hasError('required')">
+                Physician Contact Number is required
+              </div>
+            </div>
+          </div>
+<!-- updated new  -->
+          <div class="form-group row" style="margin:5px 0px;">
+            <div class="col-md-3">
+              <input type="hidden" class="form-control" formControlName="userid" value= {{this.userid}}>
+          </div>
+          </div>
+
+<!-- <input type="hidden" class="form-control" formControlName="userid" placeholder="input" [ngClass]="{this.userid}"> -->         
+          
+          <hr>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row" style="margin:5px 0px;">
+                <div class="col-md-3 lbl-cmn-01">
+                  <label>Consent form</label>
+                </div>
+                <div class="col-md-4 lbl-cmn-01">
+                  <select class="form-control" formControlName="consent">
+                    <option value="null"></option>
+                    <option *ngFor="let consent of consentform"> {{ consent.data }}</option>
+                  </select>
+                  <div class="form-text patintake" *ngIf="patientintake.get('consent').touched && patientintake.get('consent').hasError('required')">
+                    Please Select consent form status!
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row" style="margin:5px 0px;">
+                <div class="col-md-3 lbl-cmn-01">
+                  <label>Script</label>
+                </div>
+                <div class="col-md-4">
+                  <select class="form-control" formControlName="script">
+                    <option value="null"></option>
+                    <option *ngFor="let script of scriptform">{{ script.data }}</option>
+                  </select>
+                  <div class="form-text patintake" *ngIf="patientintake.get('script').touched && patientintake.get('script').hasError('required')">
+                    Please Select script form status!
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="col-md-12">
+                <div class="form-group row" style="margin:5px 0px;">
+                  <label>Comments</label>
+                  <textarea class="form-control" formControlName="comment" placeholder="input" [ngClass]="{'is-invalid': patientintake.get('comment').invalid && patientintake.get('comment').dirty}"></textarea>
+                  <div class="invalid-feedback" *ngIf="patientintake.get('patientLastName').touched && patientintake.get('patientLastName').hasError('required')">
+                    Comment is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="button" [disabled]="!patientintake.valid" (click)="submit($event)" class="btn btn-success">Submit</button>
+          <button type="button" (click)="resetForm()" class="btn btn-danger" style="margin-left: 5px;">Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

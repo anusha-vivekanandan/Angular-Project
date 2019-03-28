@@ -1,0 +1,108 @@
+
+<div class="callPatient">
+  <div class="card">
+      <div id="weeklyRefferalCount" style="padding: 13px 0px 0px 27px;">Total Number of Referral this week = {{this.weeklyCount}}</div>
+    <!-- Patients list -->
+    <app-patient-list [list]="patients" (onClick)="onClick($event)"></app-patient-list>
+    <!-- Patients list close-->
+
+
+    <form class="form" [formGroup]="frontFromData">
+      <div class="card-body">
+        <div class="form-group row" style="margin:5px 0px;">
+          <div class="col-md-3 lbl-cmn-01">
+            <label>Referral Status</label>
+          </div>
+          <div class="col-md-3">
+            <!-- {{frontFromData.controls['referral_Status'].value}} -->
+            <select class="form-control" formControlName="referral_Status">
+                <option [value]="status.Status" *ngFor="let status of referralstatus">{{status.Status}}</option>
+            </select>
+          </div>
+          <div class="col-md-3 lbl-cmn-01">
+            <label>Consent Form</label>
+          </div>
+
+          <div class="col-md-3">
+            <select class="form-control" formControlName="Consent_Form_Status">
+              <option [value]="consent.data" *ngFor="let consent of consentform">{{ consent.data }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row" style="margin:5px 0px;">
+          <div class="col-md-4 lbl-cmn-01">
+            <label>Date assign to Therapist</label>
+          </div>
+          <div class="col-md-2 lbl-cmn-01">
+            <div class="input-group">
+              <input class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required width-75 date-field"
+               formControlName="DateAssignedToTherapist"  placeholder="yyyy-mm-dd" ngbDatepicker #deb="ngbDatepicker" readonly>
+              <div class="input-group-append">
+                <button type="button" class="btn btn-default btn-md" (click)="deb.toggle()">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 lbl-cmn-01">
+            <label>Script</label>
+          </div>
+
+          <div class="col-md-3">
+            <select class="form-control" formControlName="Script">
+              <option [value]="script.data" *ngFor="let script of scriptform">{{ script.data }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row" style="margin:5px 0px;">
+          <div class="col-md-4 lbl-cmn-01">
+            <label>Evaluation Date</label>
+          </div>
+          <div class="col-md-2 lbl-cmn-01">
+            <div class="input-group">
+              <input class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required width-75 date-field"
+              formControlName="EvaluationDate"  placeholder="yyyy-mm-dd" ngbDatepicker #deb1="ngbDatepicker" readonly>
+              <div class="input-group-append">
+                <button type="button" class="btn btn-default btn-md" (click)="deb1.toggle()">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row" style="margin:5px 0px;height: 130px;">
+          <div class="col-md-6">
+            <label>Comments</label>
+            <textarea class="form-control" formControlName="Comments" placeholder="Enter your Comments"></textarea>
+          </div>
+          <div class="col-md-6 pastcommentsBody">
+            <label>Past Comments</label>
+            <table class="table table-hover table-bordered text-left">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">By</th>
+                  <th scope="col">Comments</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- {{commentList | json }} -->
+                <tr *ngFor="let coment of commentList">
+                  <td> {{ coment.cmt_date }}</td>
+                  <td>{{ coment.cmt_by }}</td>
+                  <td>{{ coment.Comments }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="button" (click)="submit($event)" class="btn btn-success">Submit</button>
+      </div>
+
+    </form>
+  </div>
+</div>

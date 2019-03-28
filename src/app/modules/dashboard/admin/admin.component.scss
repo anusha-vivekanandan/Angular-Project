@@ -1,0 +1,11 @@
+.admin{
+    margin: 0;
+    padding: 0px;
+    .card-body{
+        max-height: 246px;
+        overflow-y: scroll;
+        display: block;
+        width: 100%;
+        padding-top: 10px;
+    }
+ }

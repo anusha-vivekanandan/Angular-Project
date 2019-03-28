@@ -1,0 +1,255 @@
+<form [formGroup]="showFormData">
+  <div class="form-group row" style="margin:5px 0px;">
+    <div class="col-md-2 lbl-cmn-01">
+      <label>Date of Referral</label>
+    </div>
+    <div class="col-md-2 lbl-cmn-01">
+    {{ data.Date_of_Referral }}
+    </div>
+  </div>
+
+  <div class="form-group row" style="margin:5px 0px;">
+    <div class="col-md-2 lbl-cmn-01">
+      <label>Patient name</label>
+    </div>
+    <div class="col-md-4 lbl-cmn-01">
+      {{ data.Patient_Last_Name }} {{ data.Patient_First_Name }} {{ data.Patient_Middle_Name }}
+     </div>
+    <div class="col-md-2 lbl-cmn-01">
+      <label>Date of Birth</label>
+    </div>
+    <div class="col-md-2 lbl-cmn-01">
+     {{ data.Date_of_Birth }}
+    </div>
+  </div>
+
+  <div class="form-group row" style="margin:0px;">
+    <div class="col-md-2 lbl-cmn-01">
+      <label>Insurance</label>
+    </div>
+    <div class="col-md-2">
+      <!-- {{ patientList | json  }}
+      {{showFormData.controls['insurance'].value }} -->
+      <select class="form-control" disabled="true" >
+        <!-- <option [value]="insure.Insurance" *ngFor="let insure of insurance">{{ insure.Insurance }}</option> -->
+        <option>{{data.Insurance}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-2 lbl-cmn-01">
+      <label>Service Location</label>
+    </div>
+
+    <div class="col-md-2">
+      <select class="form-control" disabled="true">
+        <!-- <option [value]="locate.location" *ngFor="let locate of service">{{ locate.location }}</option> -->
+        <option>{{ data.Service_Location }}</option>
+      </select>
+    </div>
+    <div class="col-md-2 lbl-cmn-01">
+      <label>Discipline</label>
+    </div>
+    <div class="col-md-2">
+      <select class="form-control" disabled="true">
+        {{ data.Discipline }}
+        <!-- <option readonly [value]="data" *ngFor="let data of disc">{{ data }}</option> -->
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row" style="margin:5px 0px;">
+    <div class="col-md-2 lbl-cmn-01">
+      <label>Address</label>
+    </div>
+    <div class="col-md-2 lbl-cmn-01">
+     {{ data.Address }}
+    </div>
+
+    <div class="col-md-2 lbl-cmn-01">
+      <label>City</label>
+    </div>
+
+    <div class="col-md-2 lbl-cmn-01" >
+      {{ data.City }}
+    </div>
+    <div class="col-md-2 lbl-cmn-01">
+      <label>State</label>
+    </div>
+    <div class="col-md-2 lbl-cmn-01">
+     {{ data.State }}
+    </div>
+  </div>
+
+  <div class="form-group row" style="margin:5px 0px;">
+    <div class="col-md-2 lbl-cmn-01">
+      <label>Zip</label>
+    </div>
+    <div class="col-md-4 lbl-cmn-01">
+     {{ data.Zip }}
+    </div>
+    <div class="col-md-3 lbl-cmn-01">
+      <label>Patient contact Number</label>
+    </div>
+    <div class="col-md-3 lbl-cmn-01">
+     {{ data.Patient_contact_Number }}
+    </div>
+  </div>
+
+
+  <hr>
+
+  <div class="form-group row" style="margin:5px 0px;">
+    <div class="col-md-3 lbl-cmn-01">
+      <label>Source Of Referral</label>
+    </div>
+    <div class="col-md-3">
+      <select class="form-control" disabled="true">
+        <option>{{ data.Source_Of_Referral }}</option>
+        <!-- <option [value]="source.Item" *ngFor="let source of referralsource">{{ source.Item }}</option> -->
+      </select>
+    </div>
+    <div class="col-md-3 lbl-cmn-01">
+      <label>External Referral name</label>
+    </div>
+    <div class="col-md-3">
+      <select class="form-control" disabled="true">
+          <option>{{ data.External_Referral_name }}</option>
+        <!-- <option [value]="name.firstname+' '+name.lastname " *ngFor="let name of externalName"> {{name.firstname}}
+          {{name.lastname}}</option> -->
+      </select>
+    </div>
+  </div>
+
+
+  <hr>
+
+  <div class="form-group row" style="margin:5px 0px;">
+    <div class="col-md-2 lbl-cmn-01">
+      <label>Supervising Therapist</label>
+    </div>
+    <div class="col-md-4">
+      <select class="form-control" disabled="true">
+        <option> {{ data.supervising_Therapist }} </option>
+        <!-- <option [value]="supervise.firstName +' ' + supervise.LastName" *ngFor="let supervise of therapist">{{
+          supervise.firstName }} {{ supervise.LastName }} </option> -->
+      </select>
+    </div>
+    <div class="col-md-2 lbl-cmn-01">
+      <label>Treating Therapist</label>
+    </div>
+    <div class="col-md-4">
+      <select class="form-control" disabled="true">
+          <option> {{ data.Treating_Therapist }} </option>
+        <!-- <option [value]="ptreat.firstName +' '+ ptreat.LastName " *ngFor="let ptreat of treating"> {{
+          ptreat.firstName }} {{ ptreat.LastName }}</option> -->
+      </select>
+    </div>
+  </div>
+
+
+  <div class="form-group row" style="margin:5px 0px;">
+    <div class="col-md-2 lbl-cmn-01">
+      <label>Physician name</label>
+    </div>
+    <div class="col-md-4 lbl-cmn-01">
+      {{ data.Physician_Name }}
+    </div>
+    <div class="col-md-2 lbl-cmn-01">
+      <label>Physician Office</label>
+    </div>
+    <div class="col-md-4">
+      <select class="form-control" disabled="true">
+          <option> {{ data.Physician_Office }} </option>
+        <!-- <option [value]="phy.office.officeName" *ngFor="let phy of physicianoffice">{{ phy.office.officeName }}</option> -->
+
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row" style="margin:5px 0px;">
+    <div class="col-md-3 lbl-cmn-01">
+      <label>Physician office contact#</label>
+    </div>
+    <div class="col-md-3 lbl-cmn-01">
+     {{ data.Physician_office_Contact_Number }}
+    </div>
+  </div>
+
+
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group row" style="margin:5px 0px;">
+        <div class="col-md-3 lbl-cmn-01">
+          <label>Consent form</label>
+        </div>
+        <div class="col-md-3">
+          <select class="form-control" disabled="true">
+            <option>{{ data.Consent_Form_Status }}</option>
+            <!-- <option [value]="consent.data" *ngFor="let consent of consentform">{{ consent.data }}</option> -->
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row" style="margin:5px 0px;">
+        <div class="col-md-3 lbl-cmn-01">
+          <label>Script</label>
+        </div>
+        <div class="col-md-3">
+          <select class="form-control" disabled="true">
+              <option>{{ data.Script }}</option>
+            <!-- <option [value]="script.data" *ngFor="let script of scriptform">{{ script.data }}</option> -->
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-md-6">
+      <div class="col-md-12">
+        <div class="form-group row" style="margin:5px 0px;">
+          <label>Comments</label>
+          <textarea class="form-control" formControlName="Comments" placeholder="input"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 pastComments">
+      <label>Past Comments</label>
+      <table class="table table-hover table-bordered text-left">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">By</th>
+            <th scope="col">Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let coment of commentList">
+            <td> {{ coment.cmt_date }}</td>
+            <td>{{ coment.cmt_by }}</td>
+            <td>{{ coment.Comments }}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <div class="col-md-12 card-footer text-center">
+    <div class="form-group row" style="margin:5px 0px;">
+      <div class="col-md-2 lbl-cmn-01">
+        <label>Referral Status</label>
+      </div>
+      <div class="col-md-3">
+        <select class="form-control" formControlName="Referral_Status">
+          <option value="null"></option>
+          <option *ngFor="let ref of status"> {{ ref.data }} </option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <button type="button" (click)="onSubmit($event)" class="btn btn-success">Submit</button>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>
+</form>

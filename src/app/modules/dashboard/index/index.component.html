@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<div class="container">
+<div>
+    <img src="../../assets/images/carefirstlogo.png">
+</div>
+    <div class="outerLayer">
+  <div class="container" style="padding-right:80px;"> 
+    <ul class="nav nav-pills">
+      <li id="IntakeForm" class="active hide">
+          <a (click)="changetab('IntakeForm');
+          showTabContent('IntakeForm1');">Intake form </a> 
+      </li>
+      <li id="FrontOffice" class="hide">        
+          <a (click)="changetab('FrontOffice');
+          showTabContent('FrontOffice1');">Front office</a>   
+      </li>
+      <li id="Admin" class="hide">
+          <a (click)="changetab('Admin');
+          showTabContent('Admin1');">Admin</a> 
+      </li>
+      <li id="Marketing" class="hide">
+          <a (click)="changetab('Marketing');
+         showTabContent('Marketing1');">Marketing</a> 
+      </li>
+    </ul>
+    <div id="IntakeForm1" class="hide">
+      <!-- Intake Form -->
+      <app-intake-form></app-intake-form>
+      <!-- Intake Form Close -->
+    </div>
+    <div id="FrontOffice1" class="hide">
+       <!--  Call Patient -->
+       <app-front-office></app-front-office>
+       <!--  Call Patient Close -->
+      </div>
+      <div id="Admin1" class="hide">
+          <!-- Admin -->
+          <app-admin></app-admin>
+          <!-- Admin Close -->
+      </div>
+      <div id="Marketing1" class="hide">
+            <!-- Marketing -->
+          <app-marketing></app-marketing>
+          <!-- Marketing Close -->
+      </div>
+  </div>
+</div>
+</div>

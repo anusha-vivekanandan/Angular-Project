@@ -1,0 +1,90 @@
+<div class="card" *ngIf="patientinfo">
+  <div class="card-body">
+      <table class="table table-hover table-bordered">
+          <thead>
+              <tr>
+                  <th scope="col">Therapists</th>
+                  <th scope="col">Name</th>
+              </tr>
+            </thead>
+          <tbody >
+              <tr>
+                  <td>Supervising Therapists</td>
+                  <td>Treating Therapists</td>
+              </tr>
+              <tr (click)="patientData(patient)">
+                  <td>{{ patientinfo.supervising_Therapist }}</td>
+                  <td>{{ patientinfo.Treating_Therapist }}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div class="card-footer">
+    <div class="col-md-12 text-right">
+      <a (click)="close()" class="btn btn-secondary mr-2">Close</a>
+      <a (click)="open(content)" class="btn btn-primary">Calling Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header ">
+    <h4 class="modal-title text-center" id="modal-basic-title">Call Time</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h3 style="text-align: center;"> {{ hours }} H : {{ minutes }} M : {{ seconds }} S </h3>
+  </div>
+  <div class="modal-footer ">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Done</button>
+  </div>
+</ng-template>
+<!-- Modal Close -->
+
+
+
+<!-- 
+<div class="col-md-12">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Therapists</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr>
+                <td>Supervising Therapists</td>
+                <td>Treating Therapists</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>Name</td>
+            </tr>
+        </tbody>
+    </table>
+    
+   
+      <a (click)="open(content)" class="btn btn-primary">Calling Now</a>
+
+
+  
+<ng-template #content let-modal>
+        <div class="modal-header ">
+          <h4 class="modal-title text-center" id="modal-basic-title">Call Time</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3 style="text-align: center;"> {{ hours }} H : {{ minutes }} M : {{ seconds }} S</h3>
+        </div>
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Done</button>
+        </div>
+      </ng-template>
+     
+</div> -->
